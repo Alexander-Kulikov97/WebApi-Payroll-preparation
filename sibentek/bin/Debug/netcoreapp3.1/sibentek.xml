@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>sibentek</name>
+    </assembly>
+    <members>
+        <member name="M:sibentek.Controllers.GetSalaryController.GetSalary(Newtonsoft.Json.Linq.JArray)">
+             <summary>
+             Gets information about the company's employees and calculates how much the company should pay its employees at the end of the month
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /Todo
+                 [
+                    {
+                         "position":"manager",
+                         "salary": "150000",
+                         "bonus": "0"
+                     },
+                     {
+                         "position":"technician",
+                         "salary": "35000",
+                         "bonus": "5000",
+                         "category": "B"
+                     },
+                     {
+                         "position":"driver",
+                         "salary": "250",
+                         "bonus": "10000",
+                         "timeWorked": "80",
+                         "category": "A"
+                     }
+                 ]
+             </remarks>
+             <param name="data"></param>
+             <returns>Total amount of salary payments for all employees</returns>
+             <response code="200">Returns total amount of salary payments for all employees</response>
+        </member>
+    </members>
+</doc>
