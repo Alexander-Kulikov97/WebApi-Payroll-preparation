@@ -1,5 +1,4 @@
-﻿using Sibintek.Models.Enum;
-using Sibintek.Models.Interfaces;
+﻿using Sibintek.Models.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,15 +8,12 @@ namespace Sibintek.Models
 {
     public class Manager : IEmployee
     {
-        public string Position { get; set; }
+        private decimal Salary { get; set; }
 
-        public decimal Salary { get; set; }
+        private decimal Bonus { get; set; }
 
-        public decimal Bonus { get; set; }
-
-        public Manager(string position, decimal salary, decimal bonus)
+        public Manager(decimal salary, decimal bonus)
         {
-            Position = position;
             Salary = salary;
             Bonus = bonus;
         }

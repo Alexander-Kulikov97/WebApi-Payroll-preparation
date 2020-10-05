@@ -1,5 +1,4 @@
-﻿using Sibintek.Models.Enum;
-using Sibintek.Models.Interfaces;
+﻿using Sibintek.Models.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,25 +8,33 @@ namespace Sibintek.Models
 {
     public class Technician : IEmployee
     {
-        public string Position { get; set; }
+        private decimal Salary { get; set; }
 
-        public decimal Salary { get; set; }
+        private decimal Bonus { get; set; }
 
-        public decimal Bonus { get; set; }
+        private decimal Category { get; set; }
 
-        public Category Category { get; set; }
-
-        public Technician(string position, decimal salary, decimal bonus, Category category)
+        public Technician(decimal salary, decimal bonus, char category)
         {
-            Position = position;
             Salary = salary;
             Bonus = bonus;
-            Category = category;
+            switch (category)
+            {
+                case 'A':
+                    Category = 125;
+                    break;
+                case 'B':
+                    Category = 115;
+                    break;
+                case 'C':
+                    Category = 100;
+                    break;
+            }
         }
 
         public decimal GetSalary()
         {
-            return ((decimal)Category / 100) * Salary + Bonus;
+            return (Category / 100) * Salary + Bonus;
         }
     }
 }

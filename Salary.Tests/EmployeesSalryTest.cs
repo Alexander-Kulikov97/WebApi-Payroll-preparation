@@ -3,29 +3,23 @@ using Newtonsoft.Json.Linq;
 using NUnit.Framework;
 using sibentek.Controllers;
 using Sibintek.Models;
-using Sibintek.Models.Enum;
 
 namespace Salary.Tests
 {
     [TestFixture]
     public class EmployeesSalryTest
     {
-        GetSalaryController _getSalaryController;
-
-
-
         [Test]
         public void GetSalary_Manager150000returned()
         {
             //arrange
-            string position = "manager";
 
             decimal salary = 150000;
 
             decimal bonus = 0;
 
             //act
-            decimal actual = new Manager(position, salary, bonus).GetSalary();
+            decimal actual = new Manager(salary, bonus).GetSalary();
 
             //assert
             Assert.That(actual, Is.EqualTo(150000));
@@ -35,7 +29,6 @@ namespace Salary.Tests
         public void GetSalary_Driver35000returned()
         {
             //arrange
-            string position = "driver";
 
             decimal salary = 250;
 
@@ -43,10 +36,10 @@ namespace Salary.Tests
 
             int timeWorked = 80;
 
-            Category category = Category.A;
+            char category = 'A';
 
             //act
-            decimal actual = new Driver(position, salary, bonus, timeWorked, category).GetSalary();
+            decimal actual = new Driver(salary, bonus, timeWorked, category).GetSalary();
 
             //assert
             Assert.That(actual, Is.EqualTo(35000));
@@ -56,16 +49,15 @@ namespace Salary.Tests
         public void GetSalary_Technician45250returned()
         {
             //arrange
-            string position = "manager";
 
             decimal salary = 35000;
 
             decimal bonus = 5000;
 
-            Category category = Category.B;
+            char category = 'B';
 
             //act
-            decimal actual = new Technician(position, salary, bonus, category).GetSalary();
+            decimal actual = new Technician(salary, bonus, category).GetSalary();
 
             //assert
             Assert.That(actual, Is.EqualTo(45250));
